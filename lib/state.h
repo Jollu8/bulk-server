@@ -7,7 +7,7 @@ namespace bulk {
 
     class StateBase {
     public: // Constructor
-        StateBase(Handler *handler);
+        explicit StateBase(Handler *handler);
 
     public: // Destructor
         virtual ~StateBase() = default;
@@ -27,7 +27,7 @@ namespace bulk {
 
     class StateEmpty : public StateBase {
     public: // Constructor
-        StateEmpty(Handler *handler);
+        explicit StateEmpty(Handler *handler);
 
     public: // Virtual methods
         void CmdOpenedBracket() override;
@@ -44,7 +44,7 @@ namespace bulk {
 
     class StateStatic : public StateBase {
     public: // Constructor
-        StateStatic(Handler *handler);
+        explicit StateStatic(Handler *handler);
 
     public: // Methods
         void CmdClosedBracket() override;
@@ -61,7 +61,7 @@ namespace bulk {
 
     class StateDynamic : public StateBase {
     public: // Constructor
-        StateDynamic(Handler *handler);
+        explicit StateDynamic(Handler *handler);
 
     public: // Methods
         void CmdClosedBracket() override;
@@ -72,7 +72,7 @@ namespace bulk {
 
         void CmdOther(const bulk::Cmd &cmd) override;
 
-    public: // Using
-        using StateBasePtr = std::unique_ptr<StateBase>;
+
     };
+    using StateBasePtr = std::unique_ptr<StateBase>;
 }

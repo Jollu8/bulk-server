@@ -15,14 +15,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # sources
 message("My_Message Done source file from /lib")
-file(GLOB SOURCES ${PROJECT_SOURCE_DIR}/lib/*.h ${PROJECT_SOURCE_DIR}/lib/*.cpp)
+file(GLOB SOURCES main.cpp ${PROJECT_SOURCE_DIR}/lib/*.h ${PROJECT_SOURCE_DIR}/lib/*.cpp)
 # headers
 
 message("My_Message Done headers file from /lib")
 
 
 add_executable(${PROJECT_NAME}  ${SOURCES} )
-add_executable(bulk_client lib/client.cpp)
+add_executable(bulk_client client.cpp)
 message("My_Message created bulk_client and bulk_server")
 target_link_libraries(
         bulk_server
